@@ -1,0 +1,32 @@
+package com.appsdeveloperblog.mongotemplatedemo.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.appsdeveloperblog.mongotemplatedemo.model.Person;
+import com.appsdeveloperblog.mongotemplatedemo.service.PersonService;
+
+@Controller
+public class PersonColtroller {
+	@Autowired
+	PersonService ps;
+	
+	@PostMapping("/savepersion")
+	String savePerson(@RequestBody Person person)
+	{
+		
+	
+		String msg="";
+		boolean b=ps.savePerson(person);
+		if(b)
+		{
+			msg="persion"+person.getPersonId()+"is Saved";
+		}
+		return "";
+	}
+	
+	
+
+}

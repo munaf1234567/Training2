@@ -1,0 +1,9 @@
+package com.exilant.commons;
+
+public class SparkConnection {
+
+	public SparkConnection() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

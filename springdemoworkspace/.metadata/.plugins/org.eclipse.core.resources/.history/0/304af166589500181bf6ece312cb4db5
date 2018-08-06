@@ -1,0 +1,21 @@
+package com.appsdeveloperblog.mongotemplatedemo.Dao;
+
+import java.util.*;
+
+import com.appsdeveloperblog.mongotemplatedemo.model.*;
+
+public interface PersonDao {
+	boolean savePerson(Person person);
+//	   List<Person> getAllPerson();
+//	   List<Person> getAllPersonPaginated(
+//	   int pageNumber, int pageSize);
+//	   Person findOneByName(String name);
+//	   List<Person> findByName(String name);
+//	   List<Person> findByBirthDateAfter(Date date);
+//	   List<Person> findByAgeRange(int lowerBound, int upperBound);
+//	   List<Person> findByFavoriteBooks(String favoriteBook);
+//	   void updateMultiplePersonAge();
+//	   Person updateOnePerson(Person person);
+//	   void deletePerson(Person person);
+
+}

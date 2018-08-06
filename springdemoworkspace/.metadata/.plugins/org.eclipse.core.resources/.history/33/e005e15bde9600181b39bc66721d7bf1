@@ -1,0 +1,29 @@
+package com.exilant.commons;
+
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.sql.*;
+import static org.apache.spark.sql.functions.*;
+public class SparkSqlDemo {
+
+	public static void main(String[] args) {
+
+	     Logger.getLogger("org").setLevel(Level.ERROR);
+	     Logger.getLogger("akka").setLevel(Level.ERROR);
+	 	JavaSparkContext spContext = SparkConnection.getContext();
+	 	SparkSession spSession =SparkConnection.getSession();
+	 	
+	 	Dataset<Row> empDatafields=spSession.read().json("./dada/cust.json");
+	 	empDatafields.show();
+	 	empDatafields.printSchema();
+	 	
+	 	//data  queries
+	 	System.out.println("select demo");
+	 	
+	 	empDatafields.select(col("name"),col("salary")).show();
+	 	empDatafields.filter(col("gender").equalTo("male")).show();
+	 	
+	}
+
+}

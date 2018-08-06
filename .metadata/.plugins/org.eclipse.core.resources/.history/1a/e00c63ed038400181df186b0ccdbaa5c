@@ -1,0 +1,12 @@
+package com.exilant.day2;
+
+import java.util.*;
+
+public class persionClient {
+
+	public static void main(String[] args) {
+		List<Person> plist= Arrays.asList(new person)
+
+	}
+
+}

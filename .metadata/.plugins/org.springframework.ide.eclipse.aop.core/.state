@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="SpringWorks"/>
+<aop-project name="demo"/>
+<aop-project name="springdemo"/>
+<aop-project name="student-services"/>
+<aop-project name="springworks1"/>
+</aop-reference-model>

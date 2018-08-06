@@ -1,0 +1,45 @@
+package com.training.spark;
+
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.spark.SparkConf;
+import org.apache.spark.api.java.JavaRDD;
+import org.apache.spark.api.java.JavaSparkContext;
+
+import com.exilant.commons.DataSource;
+import com.exilant.commons.SparkConnection;
+import com.exilant.commons.Utilities;
+
+public class sparkOperationClient {
+
+	
+
+	public static void main(String[] args) {
+	
+		
+		
+	     Logger.getLogger("org").setLevel(Level.ERROR);
+		JavaSparkContext spContext = SparkConnection.getContext();
+		
+		//start loading the data
+		//1.load the collection and cache it
+		
+		JavaRDD<Integer> collData=DataSource.getCollData();
+		System.out.println("total no of recods---"+collData.count());
+		
+		//2. load the file and cache it
+		
+		JavaRDD<String> autoDataContent=spContext.textFile("./dada/auto-data.csv");
+		System.out.println("total no of recods"+autoDataContent.count());
+		
+		autoDataContent.take(5).forEach(System.out::println);
+		
+		//
+		Utilities.printStringRDD(autoDataContent, 5);
+		
+		
+	
+
+	}
+
+}

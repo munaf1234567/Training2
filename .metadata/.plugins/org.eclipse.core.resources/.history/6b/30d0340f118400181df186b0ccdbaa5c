@@ -1,0 +1,83 @@
+package com.exilant.day2;
+
+import java.util.*;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
+public class predicateex {
+
+	public static void main(String[] args) {
+	Predicate<Integer> graterthan=i->i>10;
+	Predicate<Integer> lessthen=i->i<10;
+	Predicate<Integer> posno=i->i>10;
+	Predicate<Integer> betrange=i->i>12 && i<100;
+	List<Integer> intlist = Arrays.asList(12,23,34,45,-33,-10,2,77);
+//	List<Integer> getthen10list =intlist.stream().filter(graterthan).collect(Collectors.toList());
+//	getthen10list.forEach(System.out::println);
+//	List<Integer> intlist1 = filteredlist(intlist,graterthan);
+//	intlist1.forEach(System.out::println);
+//	System.out.println("-----------------------------------------");
+//	List<Integer> intlist2 = filteredlist(intlist,lessthen);
+//	intlist2.forEach(System.out::println);
+//	
+//	System.out.println("-----------------------------------------");
+//	Predicate<Integer> comppre=posno.and(betrange);
+//	
+//	List<Integer> intlist3 = filteredlist(intlist,comppre);
+//	intlist3.forEach(System.out::println);
+//	
+	
+	List<Person> plist= Arrays.asList(
+			new Person(101, "gautan1"),
+			new Person(102, "gautan2"),
+			new Person(103, "gautan3"),
+			new Person(104, "gautan4"),
+			new Person(105, "gautan4"),
+			new Person(106, "gautan4"),
+			new Person(107, "gautan4")
+			);
+	plist.forEach(System.out::println);
+	System.out.println("-----------------------");
+	Predicate<Person> graterthan1=i->i.getPid()>101;
+	Predicate<Person> lessthen2=i->i.getPid()<104;
+	Predicate<Person> posno1=i->i.getPid()>103;
+	Predicate<Person> betrange1=i->i.getPid()>101 && i.getPid()<105;
+	
+	List<Person> intlist1 = filteredlist2(plist,graterthan1);
+	intlist1.forEach(System.out::println);
+	
+	
+
+	}
+
+	
+	
+	public static List<Integer> filteredlist (List<Integer> nos,	Predicate<Integer> pre)
+	{
+		List<Integer> intlist = new ArrayList<>();
+		for(Integer tm:nos)
+		{
+			if(pre.test(tm))
+			{
+				intlist.add(tm);
+			}
+		}
+		return intlist;
+	}
+	
+	
+	
+	
+	public static List<Person> filteredlist2 (List<Person> nos,	Predicate<Person> pre)
+	{
+		List<Person> intlist = new ArrayList<>();
+		for(Person tm:nos)
+		{
+			if(pre.test(tm))
+			{
+				intlist.add(tm);
+			}
+		}
+		return intlist;
+	}
+}

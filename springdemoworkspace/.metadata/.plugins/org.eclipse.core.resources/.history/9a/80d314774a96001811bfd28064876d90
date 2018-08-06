@@ -1,0 +1,104 @@
+package com.training.spark;
+
+import java.util.Arrays;
+import java.util.Iterator;
+
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.spark.SparkConf;
+import org.apache.spark.api.java.JavaRDD;
+import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.api.java.function.FlatMapFunction;
+
+import com.exilant.commons.CleanserRddcars;
+import com.exilant.commons.DataSource;
+import com.exilant.commons.SparkConnection;
+import com.exilant.commons.Utilities;
+
+public class sparkOperationClient {
+
+	
+
+	public static void main(String[] args) {
+	
+		
+		
+	     Logger.getLogger("org").setLevel(Level.ERROR);
+		JavaSparkContext spContext = SparkConnection.getContext();
+		
+		//start loading the data
+		//1.load the collection and cache it
+		
+		JavaRDD<Integer> collData=DataSource.getCollData();
+		System.out.println("total no of recods---"+collData.count());
+		
+		//2. load the file and cache it
+		
+		JavaRDD<String> autoDataContent=spContext.textFile("./dada/auto-data.csv");
+		System.out.println("total no of recods"+autoDataContent.count());
+		
+		autoDataContent.take(5).forEach(System.out::println);
+		
+		//printing 5 lines of data
+		Utilities.printStringRDD(autoDataContent, 5);
+		//storing 
+		//autoDataContent.saveAsTextFile("data/auto-data-mod.csv");
+		//
+		JavaRDD<String> atsvData=autoDataContent.map(str->str.replace(",","\t"));
+		Utilities.printStringRDD(atsvData, 5);
+		
+		
+		
+		//this is filter example
+		
+		
+		
+		String header =autoDataContent.first();
+		JavaRDD<String> autoDatawithOutHeader=autoDataContent.filter(s->!s.equals(header));
+		Utilities.printStringRDD(autoDatawithOutHeader, 5);
+		
+		System.out.println("-------------------------------------------dstinct record----------------------------------");
+		JavaRDD<String> distinctData=autoDataContent.distinct();
+		Utilities.printStringRDD(distinctData, (int)distinctData.count());
+		
+		
+
+		System.out.println("-------------------------------------------dstinct record----------------------------------");
+		JavaRDD<String> words=autoDataContent.flatMap(new FlatMapFunction<String, String>() {
+
+			@Override
+			public Iterator<String> call(String t) throws Exception {
+				
+				return Arrays.asList(t.split(",")).iterator();
+			}
+		});
+          System.out.println(words.count());
+          
+          System.out.println("-------------------------------------------Cleanser record----------------------------------");
+          
+               JavaRDD<String>cleanRDD=   autoDataContent.map(new CleanserRddcars());
+  
+               Utilities.printStringRDD(cleanRDD, (int)cleanRDD.count());
+          
+          
+               System.out.println("-------------------------------------------unioun record----------------------------------");   
+               JavaRDD<String> word1=spContext.parallelize(Arrays.asList("hello","how","are","you","today"));
+               
+               JavaRDD<String> word2=spContext.parallelize(Arrays.asList("hello","how","were","yesterday"));
+               System.out.println("---------------------------------------------unoinrec -----------------------------");
+               Utilities.printStringRDD(word1.union(word2), 10);
+               System.out.println("---------------------------------------------intercectionrec -----------------------------");
+               Utilities.printStringRDD(word1.intersection(word2), 10);
+          
+          
+          
+          
+               System.out.println("-------------------------------------------sum record----------------------------------");
+               Integer ccollDatacount=collData.reduce((x,y) -> x+y);
+               System.out.println("sum"+ccollDatacount);
+               System.out.println("-------------------------------------------sum record----------------------------------");
+               
+               autoDataContent.reduce((str))
+	}
+
+}

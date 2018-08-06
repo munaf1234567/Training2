@@ -1,0 +1,10 @@
+package com.exilant.commons;
+
+public class SparkConnection {
+
+	public SparkConnection() {
+		private static String appName="sampleApp";
+		private static String sparkMaster="local[2]";
+	}
+
+}

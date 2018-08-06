@@ -1,0 +1,11 @@
+package com.exilant.day2;
+
+public class exilantemp implements iemp {
+
+	@Override
+	public void sal() {
+		
+		
+	}
+
+}

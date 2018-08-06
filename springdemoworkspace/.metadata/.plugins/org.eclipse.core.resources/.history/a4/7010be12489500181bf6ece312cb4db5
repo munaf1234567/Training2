@@ -1,0 +1,18 @@
+package com.appsdeveloperblog.mongotemplatedemo.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.appsdeveloperblog.mongotemplatedemo.Dao.PersonDao;
+import com.appsdeveloperblog.mongotemplatedemo.Dao.PersonDaoImpl;
+import com.appsdeveloperblog.mongotemplatedemo.model.Person;
+
+public class PersonServiceImpl implements PersonService {
+	@Autowired
+	PersonDao pdao;
+	@Override
+	public boolean savePerson(Person person) {
+		// TODO Auto-generated method stub
+		return pdao.savePerson(person);
+	}
+
+}

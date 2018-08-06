@@ -1,0 +1,33 @@
+package com.exilant.mongotemplate.demoMongoTemplate;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.mongodb.core.MongoTemplate;
+
+import com.appsdeveloperblog.mongotemplatedemo.model.Person;
+import com.mongodb.MongoClient;
+
+@SpringBootApplication
+@ComponentScan(basePackages= {"com.appsdeveloperblog.mongotemplatedemo.*"})
+@Configuration
+public class DemoMongoTemplateApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(DemoMongoTemplateApplication.class, args);
+		
+	}
+	
+	
+	
+	@Bean
+	public MongoTemplate getMongoTemplate()
+	{
+		
+		MongoClient mc= new MongoClient("localhost",27015);
+		
+		return new MongoTemplate(mc, "mongod");
+	}
+}

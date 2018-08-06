@@ -1,0 +1,33 @@
+package com.training.spark;
+
+import org.apache.spark.SparkConf;
+import org.apache.spark.api.java.JavaRDD;
+import org.apache.spark.api.java.JavaSparkContext;
+
+public class readmovietweets {
+
+	public static void main(String[] args) {
+		String appName="sampleApp";
+		//as of now we got 2 instances of spark or this can be got from remote instance
+		String sparkMaster="local[2]";
+		JavaSparkContext spContext=null;
+		SparkConf conf=new SparkConf().setAppName(appName).setMaster(sparkMaster);
+		
+		//create spark context from  comfiguration
+		spContext = new JavaSparkContext(conf);
+		
+		//read the file into RDD
+		JavaRDD<String> tweetRDD=spContext.textFile("./dada/movietweets.csv");
+		
+		tweetRDD.take(5).forEach(System.out::println);
+		//count no of comments
+		int count=(int) tweetRDD.count();
+		
+		System.out.println("no of tweets---"+count);
+		
+		JavaRDD<String> upperCaseRDD=tweetRDD.map(temp->temp.toUpperCase());
+		
+		upperCaseRDD.take(10).forEach(System.out::println);
+	}
+
+}

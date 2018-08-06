@@ -1,0 +1,10 @@
+package com.exilant.day2;
+
+public interface iemp {
+	void sal();
+	default void noofHrs()
+	{
+		
+	}
+
+}

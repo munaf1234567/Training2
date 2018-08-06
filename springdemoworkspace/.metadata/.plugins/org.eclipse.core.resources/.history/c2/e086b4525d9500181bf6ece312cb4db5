@@ -1,0 +1,13 @@
+package com.appsdeveloperblog.mongotemplatedemo.controller;
+
+public class PersionNotFoundException extends RuntimeException {
+	private int id;
+
+	public PersionNotFoundException(int id) {
+		super();
+		this.id = id;
+	}
+	
+	public String geM
+
+}

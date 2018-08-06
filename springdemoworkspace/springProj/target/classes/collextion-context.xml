@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	   http://www.springframework.org/schema/beans/spring-beans.xsd">
+     <!--  default scope is singleton -->	
+
+<bean id="ques" class="com.exilant.colections.QuestionBank"> 
+<property name="ques" value="inheritance is avail in...."></property>
+<property name="options">
+<list>
+<value>java</value>
+<value>c++</value>
+<value>scala</value>
+</list>
+</property>
+</bean>
+
+<bean id="addset" class="com.exilant.colections.AddressSet"> 
+<property name="adds">
+<set>
+<value>banglore</value>
+<value>kolkata</value>
+<value>btm</value>
+<value>burdwan</value>
+
+</set>
+</property>
+</bean>
+<bean id="accmap" class="com.exilant.colections.AccMap"> 
+<property name="accMap">
+<map>
+<entry key="ramu" value="4000"/>
+<entry key="acb" value="5000"/>
+<entry key="def" value="6000"/>
+</map>
+</property>
+</bean>
+
+<bean id="col" class="com.exilant.colections.mycoll" autowire="byName"/>
+
+</beans>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+     <!--  default scope is singleton -->	
+
+<aop:aspectj-autoproxy/>
+<context:annotation-config/>
+<context:component-scan base-package="com.exilant.aop"/>
+
+<bean id="acc1" class="com.exilant.aop.Acc">
+<property name="accno" value="101"/> 
+<property name="accname" value="sidd"/>
+<property name="accbal" value="10000"/>
+</bean>
+
+<bean id="acc2" class="com.exilant.aop.Acc">
+<property name="accno" value="102"/> 
+<property name="accname" value="sodd"/>
+<property name="accbal" value="20000"/>
+</bean>
+
+<bean id="sbacc" class="com.exilant.aop.SBAcc">
+<property name="acc" ref="acc1"/>
+</bean>
+
+<bean id="ccacc" class="com.exilant.aop.CAAcc2">
+<property name="acc" ref="acc2"/>
+</bean>
+<bean id="banking" class="com.exilant.aop.BankingService" autowire="byName">
+
+</bean>
+<bean id="logAspect" class="com.exilant.aop.LoginAspectAround" />
+<!-- 
+<bean id="logAspect" class="com.exilant.aop.LoginAspect" />
+ -->
+</beans>

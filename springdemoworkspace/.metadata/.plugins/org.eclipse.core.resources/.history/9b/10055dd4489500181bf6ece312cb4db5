@@ -1,0 +1,21 @@
+package com.appsdeveloperblog.mongotemplatedemo.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.appsdeveloperblog.mongotemplatedemo.model.Person;
+
+@Controller
+public class PersonColtroller {
+	
+	
+	@PostMapping("/savepersion")
+	String savePerson(@RequestBody Person person)
+	{
+		return "";
+	}
+	
+	
+
+}

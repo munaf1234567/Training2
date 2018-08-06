@@ -1,0 +1,11 @@
+package com.appsdeveloperblog.mongotemplatedemo.service;
+
+import java.util.List;
+
+import com.appsdeveloperblog.mongotemplatedemo.model.Person;
+
+public interface PersonService {
+	boolean savePerson(Person person);
+	 List<Person> getAllPerson();
+	 Person findOneById(String id);
+}

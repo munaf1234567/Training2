@@ -1,0 +1,3 @@
+server.port=8080
+# MongoDB properties
+spring.data.mongodb.uri=mongodb:

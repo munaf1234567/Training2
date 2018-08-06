@@ -1,0 +1,10 @@
+package com.exilant.colections;
+
+import java.util.*;
+
+public class mycoll {
+	List ques;
+	Set addset;
+	Map accmap;
+
+}

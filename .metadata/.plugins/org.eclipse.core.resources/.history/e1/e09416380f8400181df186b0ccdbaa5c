@@ -1,0 +1,38 @@
+package com.exilant.day2;
+
+import java.util.*;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
+public class predicateex {
+
+	public static void main(String[] args) {
+	Predicate<Integer> graterthan=i->i>10;
+	Predicate<Integer> lessthen=i->i<10;
+	List<Integer> intlist = Arrays.asList(12,23,34,45,-33,-10,2,77);
+//	List<Integer> getthen10list =intlist.stream().filter(graterthan).collect(Collectors.toList());
+//	getthen10list.forEach(System.out::println);
+	List<Integer> intlist1 = filteredlist(intlist,graterthan);
+	intlist1.forEach(System.out::println);
+	List<Integer> intlist2 = filteredlist(intlist,lessthen);
+	intlist2.forEach(System.out::println);
+	
+	
+
+	}
+
+	
+	
+	public static List<Integer> filteredlist (List<Integer> nos,	Predicate<Integer> pre)
+	{
+		List<Integer> intlist = new ArrayList<>();
+		for(Integer tm:nos)
+		{
+			if(pre.test(tm))
+			{
+				intlist.add(tm);
+			}
+		}
+		return intlist;
+	}
+}

@@ -1,0 +1,5 @@
+package com.appsdeveloperblog.mongotemplatedemo.model;
+
+public class Person {
+
+}

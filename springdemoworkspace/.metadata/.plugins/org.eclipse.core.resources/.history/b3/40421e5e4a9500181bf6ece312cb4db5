@@ -1,0 +1,15 @@
+package com.exilant.mongotemplate.demoMongoTemplate;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.appsdeveloperblog.mongotemplatedemo.model.Person;
+
+@SpringBootApplication
+public class DemoMongoTemplateApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(DemoMongoTemplateApplication.class, args);
+		
+	}
+}

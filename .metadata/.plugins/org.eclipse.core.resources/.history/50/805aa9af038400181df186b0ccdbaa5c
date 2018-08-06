@@ -1,0 +1,10 @@
+package com.exilant.day2;
+
+public class persionClient {
+
+	public static void main(String[] args) {
+		List<Per>
+
+	}
+
+}

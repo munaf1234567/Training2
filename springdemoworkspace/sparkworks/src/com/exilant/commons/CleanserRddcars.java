@@ -1,0 +1,18 @@
+package com.exilant.commons;
+
+import java.util.Arrays;
+
+import org.apache.spark.api.java.function.Function;
+
+public class CleanserRddcars implements Function<String, String> {
+
+	@Override
+	public String call(String v1) throws Exception {
+	String [] attlist=v1.split(",");
+	attlist[3]=(attlist[3].equals("two"))?"2":"4";
+	
+		return Arrays.toString(attlist);
+	}
+
+	
+}

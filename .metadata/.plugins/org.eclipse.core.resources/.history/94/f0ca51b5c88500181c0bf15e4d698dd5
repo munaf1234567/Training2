@@ -1,0 +1,25 @@
+package com.exilant.day4.servicelocator;
+
+
+import javax.naming.NamingException;
+
+public class ServiceLocator {
+	private static cache che;
+	static
+	{
+		che=new cache();
+	}
+public static service getservices(String jndiname ) 
+{
+	service ser=che.getservice(jndiname);
+	if(ser!=null)
+	{
+		return ser;
+	}
+	
+initalcontext ctx=  new initalcontext();
+	service serv=(service) ctx.lookup(jndiname);
+	che.addsservice(serv);
+	return serv;
+}
+}

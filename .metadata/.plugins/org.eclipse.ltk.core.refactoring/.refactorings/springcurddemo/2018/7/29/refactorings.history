@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;springcurddemo&apos;&#x0A;- Original project: &apos;springcurddemo&apos;&#x0A;- Original element: &apos;springcurddemo/src/main/java/com.onlinetutorialspoint&apos;&#x0A;- Delete subpackages" description="Delete element" element1="/src\/main\/java&lt;com.onlinetutorialspoint.model" element2="/src\/main\/java&lt;com.onlinetutorialspoint.dao" element3="/src\/main\/java&lt;com.onlinetutorialspoint.config" element4="/src\/main\/java&lt;com.onlinetutorialspoint" elements="4" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1531741860469" subPackages="true" version="1.0"/>
+</session>

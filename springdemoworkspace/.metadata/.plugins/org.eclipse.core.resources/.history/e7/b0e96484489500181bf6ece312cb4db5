@@ -1,0 +1,8 @@
+package com.appsdeveloperblog.mongotemplatedemo.controller;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class PersonColtroller {
+
+}

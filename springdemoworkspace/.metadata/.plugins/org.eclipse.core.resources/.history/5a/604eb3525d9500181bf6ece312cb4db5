@@ -1,0 +1,5 @@
+package com.appsdeveloperblog.mongotemplatedemo.controller;
+
+public class PersionNotFoundException extends Exception {
+
+}

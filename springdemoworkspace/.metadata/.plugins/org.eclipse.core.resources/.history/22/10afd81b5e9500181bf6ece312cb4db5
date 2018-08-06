@@ -1,0 +1,19 @@
+package com.appsdeveloperblog.mongotemplatedemo.controller;
+
+public class PersionNotFoundException extends RuntimeException {
+String id;
+	public PersionNotFoundException() {
+		
+	}
+
+	public PersionNotFoundException(String id) {
+		super(id);
+		// TODO Auto-generated constructor stub
+	}
+
+	 public String getMessage() {
+	        return "persion"+id+"not found";
+	    }
+
+
+}

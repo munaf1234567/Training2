@@ -1,0 +1,22 @@
+package com.appsdeveloperblog.mongotemplatedemo.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.appsdeveloperblog.mongotemplatedemo.Dao.PersonDao;
+import com.appsdeveloperblog.mongotemplatedemo.Dao.PersonDaoImpl;
+import com.appsdeveloperblog.mongotemplatedemo.model.Person;
+@Service
+public class PersonServiceImpl implements PersonService {
+	@Autowired
+	PersonDao pdao;
+	public PersonServiceImpl() {
+		System.out.println("PersonServiceImpl--d.c");
+	}
+	@Override
+	public boolean savePerson(Person person) {
+		
+		return pdao.savePerson(person);
+	}
+
+}

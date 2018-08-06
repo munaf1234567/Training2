@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="demoMongoTemplate"/>
+<aop-project name="currency-servicee"/>
+<aop-project name="demoSpringAirline"/>
+<aop-project name="springProj"/>
+<aop-project name="spring-cloud-config-server"/>
+<aop-project name="restfuldemoo"/>
+<aop-project name="demoSpringAirline2"/>
+</aop-reference-model>

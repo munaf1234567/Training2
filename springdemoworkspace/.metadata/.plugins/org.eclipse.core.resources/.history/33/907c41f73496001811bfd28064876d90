@@ -1,0 +1,9 @@
+package com.exilant.commons;
+
+public class DataSource {
+
+	public DataSource() {
+		// TODO Auto-generated constructor stub
+	}
+
+}
